@@ -17,7 +17,7 @@ const Button = ({
     <button
       className={`${btnClass} uppercase font-rubik flex items-center gap-2  rounded-full `}
     >
-      <span className={`text-white text-sm ${txtClass}`}> {btnText} </span>
+      <span className={`text-white ${txtClass}`}> {btnText} </span>
       {imgPath && (
         <Image
           className={`size-[15px] md:size-5 ${imgClass}`}

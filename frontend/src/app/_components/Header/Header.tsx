@@ -30,7 +30,7 @@ const Header = () => {
           <NavLinks />
           <Button
             btnText="CONTACT"
-            btnClass="hidden font-bold md:flex px-8 py-2 border border-white bg-black/50"
+            btnClass="hidden text-sm font-bold md:flex px-8 py-2 border border-white bg-black/50"
           />
         </div>
       </header>

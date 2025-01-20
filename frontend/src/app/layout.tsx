@@ -5,13 +5,13 @@ import "./globals.css";
 const rubik = Rubik({
   subsets: ["latin"],
   variable: "--font-rubik",
-  weight: ["400", "500", "700", "800"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 const syne = Syne({
   subsets: ["latin"],
   variable: "--font-syne",
-  weight: ["400", "500", "700", "800"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
