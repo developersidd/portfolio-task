@@ -1,9 +1,11 @@
-import React from 'react'
+import HeroSection from "../_components/HeroSection";
 
 const HomePage = () => {
   return (
-    <div>HomePage</div>
-  )
-}
+    <main className="container mx-auto ">
+      <HeroSection />
+    </main>
+  );
+};
 
-export default HomePage
+export default HomePage;

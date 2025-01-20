@@ -11,7 +11,7 @@ const Header = () => {
   return (
     <>
       <header
-        className={`2xl:container font-rubik flex justify-between mx-auto items-center px-3 sm:px-4 md:px-8 relative xl:px-8 z-30 ${
+        className={`2xl:container font-rubik flex justify-between mx-auto items-center px-3 sm:px-4 md:px-8 relative z xl:px-8 z-30 ${
           isOpen ? "overflow-hidden scrollbar-hide" : ""
         }`}
       >
@@ -19,7 +19,7 @@ const Header = () => {
         <div className="flex items-end md:items-center gap-2">
           <Image
             className="size-[30px] sm:size-[35px] md:size-[100] xl:size-[125px]"
-            src="/assets/images/dark-logo.svg"
+            src="/assets/icons/dark-theme-logo.svg"
             width={80}
             height={60}
             alt="logo"

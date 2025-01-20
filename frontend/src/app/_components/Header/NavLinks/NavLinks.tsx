@@ -7,7 +7,7 @@ const NavLinks = () => {
         <Link
           key={index}
           href={item.toLocaleLowerCase()?.split(" ").join("")}
-          className="font-medium relative before:absolute before:bottom-0 before:left-0 before:w-full before:h-[3px] uppercase before:bg-primary-green before:rounded  before:scale-x-0 before:transition-transform before:duration-300 before:origin-right hover:before:scale-x-100  hover:before:origin-left"
+          className="text-sm font-medium relative before:absolute before:bottom-0 before:left-0 before:w-full before:h-[3px] uppercase before:bg-primary-green before:rounded  before:scale-x-0 before:transition-transform before:duration-300 before:origin-right hover:before:scale-x-100  hover:before:origin-left"
         >
           {item}
         </Link>
