@@ -3,19 +3,19 @@ import Image from "next/image";
 function Icon({
   name,
   alt,
-  classes,
+  className,
 }: {
   name: string;
   alt: string;
-  classes: string;
+  className: string;
 }) {
   return (
     <Image
-      className={`${classes} flex items-center justify-center mx-auto`}
+      className={`${className} flex items-center justify-center mx-auto`}
       src={`/assets/icons/${name}`}
       alt={alt}
-      width="64"
-      height="64"
+      width="200"
+      height="200"
     />
   );
 }
