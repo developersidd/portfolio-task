@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { useState } from "react";
 
-import Button from "../../../components/common/Button";
+import Button from "../common/Button";
 import NavLinks from "./NavLinks/NavLinks";
 
 const Header = () => {

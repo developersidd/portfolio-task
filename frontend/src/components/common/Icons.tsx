@@ -11,7 +11,7 @@ function Icon({
 }) {
   return (
     <Image
-      className={`${className} flex items-center justify-center mx-auto`}
+      className={`${className}`}
       src={`/assets/icons/${name}`}
       alt={alt}
       width="200"

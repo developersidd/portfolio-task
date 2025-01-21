@@ -6,6 +6,7 @@ const AboutMe = () => {
   return (
     <section className="relative flex flex-col items-center justify-between gap-8 pt-20 pb-32 md:flex-row md:gap-16">
       <div className="absolute -z-20 w-[800px] h-[700px] bg-[url('/assets/icons/dark-theme-vector.svg')] bg-[length:600px_500px] bg-no-repeat  top-0 -left-80 filter blur-[30px]"></div>
+
       <div className="order-2 md:order-1 w-2/4">
         <h3 className="text-[56px] leading-[67px] mb-6 text-white font-syne font-bold">
           Let&apos;s get know <br /> about me closer

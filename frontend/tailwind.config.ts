@@ -24,6 +24,7 @@ export default {
         "stone-gray": "hsl(var(--color-stone-gray))",
         "deep-dark": "hsl(var(--color-dark-background))",
       },
+      
     },
   },
   plugins: [],

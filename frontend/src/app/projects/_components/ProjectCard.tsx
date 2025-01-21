@@ -25,12 +25,12 @@ const ProjectCard = ({ project }: { project: Project }) => {
           </h3>
           <Icon alt="line" name="line.svg" className="w-[48px] mt-4 ml-10" />
         </div>
-        <p className="text-sm text-white capitalize">
+        <div className="text-sm text-white capitalize">
           <span className="text-stone-gray mr-5 ">Client:</span>
-          {client}
-        </p>
+          <p>{client}</p>
+        </div>
 
-        <p className="text-sm mt-2 font-rubik flex items-center">
+        <div className="text-sm mt-2 font-rubik flex items-center">
           <span className="text-stone-gray">Work:</span>
           <div className="ml-7 space-x-4">
             {works.map((work, index) => (
@@ -39,7 +39,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
               </span>
             ))}
           </div>
-        </p>
+        </div>
       </div>
     </div>
   );
