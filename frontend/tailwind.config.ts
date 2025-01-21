@@ -15,6 +15,7 @@ export default {
       fontFamily: {
         rubik: ["Rubik", "sans-serif"],
         syne: ["Syne", "sans-serif"],
+        inter: ["Inter", "sans-serif"],
       },
       colors: {
         "primary-orange": "hsl(var(--color-primary-orange))",
@@ -24,7 +25,6 @@ export default {
         "stone-gray": "hsl(var(--color-stone-gray))",
         "deep-dark": "hsl(var(--color-dark-background))",
       },
-      
     },
   },
   plugins: [],
