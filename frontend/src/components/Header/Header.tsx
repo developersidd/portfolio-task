@@ -11,7 +11,7 @@ const Header = () => {
   return (
     <>
       <header
-        className={`2xl:container font-rubik flex justify-between mx-auto items-center px-3 sm:px-4 md:px-8 relative z xl:px-8 z-30 ${
+        className={`container font-rubik flex justify-between mx-auto items-center px-3 sm:px-4 md:px-8 relative z xl:px-8 z-30 ${
           isOpen ? "overflow-hidden scrollbar-hide" : ""
         }`}
       >
