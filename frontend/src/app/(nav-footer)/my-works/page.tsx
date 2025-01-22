@@ -7,6 +7,7 @@ export type Work = {
     public_id: string;
     url: string;
   };
+  tags: string[];
   images: {
     public_id: string;
     url: string;
@@ -37,6 +38,7 @@ const works: Work[] = [
     ],
 
     title: "Orvillebury",
+    tags: ["Photography", "Design", "Art"],
     theme: "Green",
   },
   {
@@ -61,10 +63,12 @@ const works: Work[] = [
     ],
 
     title: "Rempelshire",
+    tags: ["Photography", "Design", "Art"],
     theme: "Blue",
   },
   {
     title: "West Lavada",
+    tags: ["Photography", "Design", "Art"],
     theme: "Yellow",
     description:
       "Everywhere we are haunted by photography in newspapers, magazines, advertisements on television on the Internet, but we still crave even more. And what helps to achieve a good result? We will look at these issues and some of the possibilities of photography and explain that it is a combination of thought imagination, visual design, technical skills and organizational skills",
@@ -88,6 +92,7 @@ const works: Work[] = [
   },
   {
     title: "New Kaitlin",
+    tags: ["Photography", "Design", "Art"],
     theme: "aqua",
     description:
       "Everywhere we are haunted by photography in newspapers, magazines, advertisements on television on the Internet, but we still crave even more. And what helps to achieve a good result? We will look at these issues and some of the possibilities of photography and explain that it is a combination of thought imagination, visual design, technical skills and organizational skills",
@@ -131,6 +136,7 @@ const works: Work[] = [
       },
     ],
     title: "New Kaitlin",
+    tags: ["Photography", "Design", "Art"],
     theme: "aqua",
   },
   {
@@ -154,6 +160,7 @@ const works: Work[] = [
       },
     ],
     title: "New Kaitlin",
+    tags: ["Photography", "Design", "Art"],
     theme: "aqua",
   },
   {
@@ -177,6 +184,7 @@ const works: Work[] = [
       },
     ],
     title: "New Kaitlin",
+    tags: ["Photography", "Design", "Art"],
     theme: "aqua",
   },
   {
@@ -200,6 +208,7 @@ const works: Work[] = [
       },
     ],
     title: "New Kaitlin",
+    tags: ["Photography", "Design", "Art"],
     theme: "aqua",
   },
   {
@@ -223,6 +232,7 @@ const works: Work[] = [
       },
     ],
     title: "New Kaitlin",
+    tags: ["Photography", "Design", "Art"],
     theme: "aqua",
   },
   {
@@ -246,6 +256,7 @@ const works: Work[] = [
       },
     ],
     title: "West Lavada",
+    tags: ["Photography", "Design", "Art"],
     theme: "Yellow",
   },
   {
@@ -269,6 +280,7 @@ const works: Work[] = [
       },
     ],
     title: "New Kaitlin",
+    tags: ["Photography", "Design", "Art"],
     theme: "aqua",
   },
   // make more 2 objects wih different colors and titles
@@ -293,6 +305,7 @@ const works: Work[] = [
       },
     ],
     title: "New Kaitlin",
+    tags: ["Photography", "Design", "Art"],
     theme: "aqua",
   },
   {
@@ -316,6 +329,7 @@ const works: Work[] = [
       },
     ],
     title: "New Kaitlin",
+    tags: ["Photography", "Design", "Art"],
     theme: "aqua",
   },
   {
@@ -339,6 +353,7 @@ const works: Work[] = [
       },
     ],
     title: "New Kaitlin",
+    tags: ["Photography", "Design", "Art"],
     theme: "aqua",
   },
   {
@@ -362,6 +377,7 @@ const works: Work[] = [
       },
     ],
     title: "New Kaitlin",
+    tags: ["Photography", "Design", "Art"],
     theme: "aqua",
   },
   {
@@ -385,6 +401,7 @@ const works: Work[] = [
       },
     ],
     title: "New Kaitlin",
+    tags: ["Photography", "Design", "Art"],
     theme: "aqua",
   },
   {
@@ -408,6 +425,7 @@ const works: Work[] = [
       },
     ],
     title: "West Lavada",
+    tags: ["Photography", "Design", "Art"],
     theme: "Yellow",
   },
   {
@@ -431,6 +449,7 @@ const works: Work[] = [
       },
     ],
     title: "New Kaitlin",
+    tags: ["Photography", "Design", "Art"],
     theme: "aqua",
   },
   // make more 2 objects wih different colors and titles
@@ -455,6 +474,7 @@ const works: Work[] = [
       },
     ],
     title: "New Kaitlin",
+    tags: ["Photography", "Design", "Art"],
     theme: "aqua",
   },
   {
@@ -478,6 +498,7 @@ const works: Work[] = [
       },
     ],
     title: "New Kaitlin",
+    tags: ["Photography", "Design", "Art"],
     theme: "aqua",
   },
   {
@@ -501,6 +522,7 @@ const works: Work[] = [
       },
     ],
     title: "New Kaitlin",
+    tags: ["Photography", "Design", "Art"],
     theme: "aqua",
   },
   {
@@ -524,6 +546,7 @@ const works: Work[] = [
       },
     ],
     title: "New Kaitlin",
+    tags: ["Photography", "Design", "Art"],
     theme: "aqua",
   },
   {
@@ -547,6 +570,7 @@ const works: Work[] = [
       },
     ],
     title: "New Kaitlin",
+    tags: ["Photography", "Design", "Art"],
     theme: "aqua",
   },
 ];

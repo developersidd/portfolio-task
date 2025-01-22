@@ -1,5 +1,5 @@
 import Button from "@/components/common/Button";
-import ProjectCard from "../projects/_components/ProjectCard";
+import ProjectCard from "../(nav-footer)/projects/_components/ProjectCard";
 
 export type Project = {
   name: string;

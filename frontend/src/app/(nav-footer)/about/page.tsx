@@ -88,5 +88,5 @@ const AboutMePage = () => {
     </section>
   );
 };
-
+ 
 export default AboutMePage;
