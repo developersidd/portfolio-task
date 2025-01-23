@@ -1,14 +1,14 @@
-import LoginForm from "./_components/RegisterForm";
+import MakeAdminForm from "./_components/MakeAdminForm";
 
-const LoginPage = () => {
+const MakeAdminPage = () => {
   return (
     <div className="h-screen flex flex-col items-center justify-center">
       <h3 className="text-[56px] leading-[67px] mb-6 text-white font-syne font-bold">
-        Login
+        Make an Admin
       </h3>
-      <LoginForm />
+      <MakeAdminForm />
     </div>
   );
 };
 
-export default LoginPage;
+export default MakeAdminPage;

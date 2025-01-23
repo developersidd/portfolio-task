@@ -6,10 +6,8 @@ import { z } from "zod";
 
 const MAX_FILE_SIZE = 5000000; // 5MB
 function checkFileType(file: File | null) {
-  console.log("filess:", file);
   if (file?.name) {
     const fileType = file?.name?.split(".")?.pop() as string;
-    //console.log("fileType:", fileType);
     const allowedTypes = ["png", "jpg", "jpeg"];
     if (allowedTypes.includes(fileType)) return true;
   }
@@ -31,7 +29,7 @@ const formSchema = z.object({
 
 type FormData = z.infer<typeof formSchema>;
 
-const RegisterForm: React.FC = () => {
+const MakeAdminForm: React.FC = () => {
   const {
     register,
     handleSubmit,
@@ -43,7 +41,6 @@ const RegisterForm: React.FC = () => {
     resolver: zodResolver(formSchema),
   });
   const [isValid, setIsValid] = React.useState(false);
-  console.log("errors:", errors);
   const handleAvatarChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     
@@ -176,4 +173,4 @@ const RegisterForm: React.FC = () => {
   );
 };
 
-export default RegisterForm;
+export default MakeAdminForm;
