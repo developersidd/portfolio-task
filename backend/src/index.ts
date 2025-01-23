@@ -3,9 +3,6 @@ import dotenv from "dotenv";
 import app from "./app";
 import connectDB from "./db/index";
 
-// configure environment variables
-dotenv.config({ path: "./.env" });
-
 // configuration
 const { PORT } = process.env;
 

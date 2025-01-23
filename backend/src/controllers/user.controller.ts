@@ -19,14 +19,16 @@ const registerUser = asyncHandler(async (req: Request, res: Response) => {
   if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)) {
     throw new ApiError(400, "Please provide a valid email address");
   }
-
+  
   const existedUser = await User.findOne({ $or: [{ username }, { email }] });
   if (existedUser) {
     throw new ApiError(409, "User already exists");
   }
-
+  
   const avatarLocalPath = req?.file?.path;
-
+  console.log("req?.file:", req?.file)
+  console.log("avatarLocalPath:", avatarLocalPath)
+  
   if (!avatarLocalPath) {
     throw new ApiError(400, "Avatar is required");
   }

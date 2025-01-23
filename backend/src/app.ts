@@ -3,16 +3,20 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 import express, { NextFunction, Request, Response } from "express";
 // import Routes
+import dotenv from "dotenv";
 import userRouter from "./routes/user.routes";
 import ApiError from "./utils/ApiError";
 
 // App Initialization
 const app = express();
 
+// configure environment variables
+dotenv.config({ path: "./.env" });
+
 // Middlewares
 app.use(express.json({ limit: "20kb" }));
 
-app.use(express.urlencoded({ limit: "20kb" }));
+app.use(express.urlencoded({ extended: true, limit: "20kb" }));
 
 app.use(express.static("public"));
 app.use(cors({ credentials: true, origin: process.env.CORS_ORIGIN }));
