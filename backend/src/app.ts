@@ -24,6 +24,9 @@ app.use(cors({ credentials: true, origin: process.env.CORS_ORIGIN }));
 app.use(cookieParser());
 
 // routes
+app.get("/", (req: Request, res: Response) => {
+  res.send("Welcome to my Portfolio Task API");
+});
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/projects", projectRouter);
 

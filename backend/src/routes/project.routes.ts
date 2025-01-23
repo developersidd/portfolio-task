@@ -10,10 +10,10 @@ import verifyJWT from "../middlewares/auth.middleware";
 import upload from "../middlewares/multer.middleware";
 
 const router = Router();
-router.patch("/:projectId", updateProject);
-router.use(verifyJWT);
-router.get("/list", getAllProjects);
 router.get("/:projectId", getProject);
+router.get("/list", getAllProjects);
+router.use(verifyJWT);
+router.patch("/:projectId", updateProject);
 router.post(
   "/create",
   upload.fields([
