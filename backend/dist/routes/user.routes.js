@@ -13,7 +13,7 @@ router.post("/register", multer_middleware_1.default.single("avatar"), user_cont
 // Login route
 router.post("/login", user_controller_1.loginUser);
 // Get all users
-router.get("/list", auth_middleware_1.default, user_controller_1.getAllUsers);
+router.get("/list", user_controller_1.getAllUsers);
 // Logout route
 router.post("/logout", auth_middleware_1.default, user_controller_1.logoutUser);
 // Refresh token route

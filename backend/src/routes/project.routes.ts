@@ -11,11 +11,11 @@ import upload from "../middlewares/multer.middleware";
 
 const router = Router();
 router.get("/:projectId", getProject);
-router.get("/list", getAllProjects);
-router.use(verifyJWT);
-router.patch("/:projectId", updateProject);
+router.get("/", getAllProjects);
+router.patch("/:projectId", verifyJWT, updateProject);
 router.post(
   "/create",
+  verifyJWT,
   upload.fields([
     {
       name: "thumbnail",

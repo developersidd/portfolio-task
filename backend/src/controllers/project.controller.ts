@@ -75,16 +75,19 @@ const getProject = asyncHandler(async (req: Request, res: Response) => {
 // get all projects
 const getAllProjects = asyncHandler(async (req: Request, res: Response) => {
   const projects = await ProjectModel.find();
-  return res.status(200).json(new ApiResponse(200, projects));
+  return res
+    .status(200)
+    .json(new ApiResponse(200, projects, "Projects retrieved successfully"));
 });
 
 // update a project
 const updateProject = asyncHandler(async (req: Request, res: Response) => {
   const { projectId } = req.params;
-  const { title, description, story, theme, tags } = req.body || {};
+  const { title, description, story, theme } = req.body || {};
+  console.log("b",req.body);
+  console.log("theme:", theme)
   if (
-    [title, description, story, theme].some((field) => field?.trim() === "") ||
-    tags?.length === 0
+    [title, description, story, theme].some((field) => field?.trim() === "")
   ) {
     throw new ApiError(400, "Please provide all required fields");
   }
@@ -96,10 +99,11 @@ const updateProject = asyncHandler(async (req: Request, res: Response) => {
       description,
       story,
       theme,
-      tags,
     },
     { new: true }
   );
+  console.log("project:", project);
+
   if (!project) {
     throw new ApiError(404, "Project not found");
   }

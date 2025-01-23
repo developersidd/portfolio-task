@@ -81,15 +81,18 @@ exports.getProject = getProject;
 // get all projects
 const getAllProjects = (0, asyncHandler_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const projects = yield proejct_model_1.default.find();
-    return res.status(200).json(new ApiResponse_1.default(200, projects));
+    return res
+        .status(200)
+        .json(new ApiResponse_1.default(200, projects, "Projects retrieved successfully"));
 }));
 exports.getAllProjects = getAllProjects;
 // update a project
 const updateProject = (0, asyncHandler_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { projectId } = req.params;
-    const { title, description, story, theme, tags } = req.body || {};
-    if ([title, description, story, theme].some((field) => (field === null || field === void 0 ? void 0 : field.trim()) === "") ||
-        (tags === null || tags === void 0 ? void 0 : tags.length) === 0) {
+    const { title, description, story, theme } = req.body || {};
+    console.log("b", req.body);
+    console.log("theme:", theme);
+    if ([title, description, story, theme].some((field) => (field === null || field === void 0 ? void 0 : field.trim()) === "")) {
         throw new ApiError_1.default(400, "Please provide all required fields");
     }
     const project = yield proejct_model_1.default.findByIdAndUpdate(projectId, {
@@ -97,8 +100,8 @@ const updateProject = (0, asyncHandler_1.default)((req, res) => __awaiter(void 0
         description,
         story,
         theme,
-        tags,
     }, { new: true });
+    console.log("project:", project);
     if (!project) {
         throw new ApiError_1.default(404, "Project not found");
     }

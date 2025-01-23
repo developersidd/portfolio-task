@@ -19,7 +19,7 @@ router.post("/register", upload.single("avatar"), registerUser);
 router.post("/login", loginUser);
 
 // Get all users
-router.get("/list", verifyJWT, getAllUsers);
+router.get("/list", getAllUsers);
 
 // Logout route
 router.post("/logout", verifyJWT, logoutUser);

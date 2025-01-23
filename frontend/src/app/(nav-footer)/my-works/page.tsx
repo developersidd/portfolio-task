@@ -1,3 +1,4 @@
+import { retrieveProjects } from "@/api/api.project";
 import WorkList from "./_components/WorkList";
 
 export type Work = {
@@ -576,7 +577,9 @@ const works: Work[] = [
   },
 ];
 
-const MyWorksPage = () => {
+const MyWorksPage = async () => {
+  const { data } = await retrieveProjects();
+  console.log("data:", data)
   return (
     <section className="container mx-auto px-8">
       <div className="relative pt-32">
@@ -593,7 +596,7 @@ const MyWorksPage = () => {
         <hr className="bg-medium-gray  mx-auto mt-20" />
       </div>
 
-      <WorkList works={works} />
+      <WorkList works={data} />
     </section>
   );
 };

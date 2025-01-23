@@ -9,10 +9,9 @@ const auth_middleware_1 = __importDefault(require("../middlewares/auth.middlewar
 const multer_middleware_1 = __importDefault(require("../middlewares/multer.middleware"));
 const router = (0, express_1.Router)();
 router.get("/:projectId", project_controller_1.getProject);
-router.get("/list", project_controller_1.getAllProjects);
-router.use(auth_middleware_1.default);
-router.patch("/:projectId", project_controller_1.updateProject);
-router.post("/create", multer_middleware_1.default.fields([
+router.get("/", project_controller_1.getAllProjects);
+router.patch("/:projectId", auth_middleware_1.default, project_controller_1.updateProject);
+router.post("/create", auth_middleware_1.default, multer_middleware_1.default.fields([
     {
         name: "thumbnail",
         maxCount: 1,

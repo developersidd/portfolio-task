@@ -1,9 +1,11 @@
-import mongoose, { Schema, Document, Model } from "mongoose";
+import mongoose, { Document, Model, Schema } from "mongoose";
 
 // Step 1: Define a TypeScript interface for the schema
 export interface IProject extends Document {
   description: string;
   story: string;
+  _id: string | mongoose.Types.ObjectId;
+
   thumbnail: {
     public_id: string;
     url: string;
@@ -18,7 +20,7 @@ export interface IProject extends Document {
 }
 
 // Step 2: Create a Mongoose schema
-const ProjectSchema: Schema = new Schema<IProject>({
+const ProjectSchema = new Schema<IProject>({
   description: {
     type: String,
     required: true,
@@ -68,6 +70,9 @@ const ProjectSchema: Schema = new Schema<IProject>({
 });
 
 // Step 3: Export the model
-const ProjectModel: Model<IProject> = mongoose.model<IProject>("Project", ProjectSchema);
+const ProjectModel: Model<IProject> = mongoose.model<IProject>(
+  "Project",
+  ProjectSchema
+);
 
 export default ProjectModel;
