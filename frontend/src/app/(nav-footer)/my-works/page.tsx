@@ -15,6 +15,7 @@ export type Work = {
   title: string;
   theme: string;
 };
+
 const works: Work[] = [
   {
     description:

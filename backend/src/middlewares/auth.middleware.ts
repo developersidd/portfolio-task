@@ -14,7 +14,7 @@ interface DecodedToken {
 const verifyJWT = asyncHandler(
   async (req: Request, _: Response, next: NextFunction) => {
     try {
-      console.log("req?.cookies:", req?.user);
+      console.log("req?.cookies:", req?.cookies);
       const accessToken =
         req?.cookies?.accessToken ||
         req.header("Authorization")?.replace("Bearer ", "");
@@ -34,16 +34,19 @@ const verifyJWT = asyncHandler(
       if (!user) {
         throw new ApiError(401, "Invalid Access Token");
       }
-      //req.user = {
-      //  username: user.username,
-      //  email: user.email,
-      //  role: user.role,
-      //  _id: user._id,
-      //  avatar: user.avatar,
-      //  refreshToken: user.refreshToken,
-      //  accessToken: user.accessToken,
-      //};
-      // console.log("req.user from auth:", req.user);
+
+      req.user = {
+        _id: user?._id,
+        username: user?.username,
+        email: user?.email,
+        role: user?.role,
+        avatar: user?.avatar,
+        tokens: {
+          refreshToken: user?.refreshToken,
+          accessToken: user?.accessToken,
+        },
+      };
+
       next();
     } catch (error: any) {
       console.log("error:", error);

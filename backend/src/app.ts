@@ -4,6 +4,7 @@ import cors from "cors";
 import express, { NextFunction, Request, Response } from "express";
 // import Routes
 import dotenv from "dotenv";
+import projectRouter from "./routes/project.routes";
 import userRouter from "./routes/user.routes";
 import ApiError from "./utils/ApiError";
 
@@ -24,6 +25,7 @@ app.use(cookieParser());
 
 // routes
 app.use("/api/v1/users", userRouter);
+app.use("/api/v1/projects", projectRouter);
 
 // 404 Error Handler
 app.use((req, res, next) => {

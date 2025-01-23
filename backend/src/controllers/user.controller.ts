@@ -19,16 +19,16 @@ const registerUser = asyncHandler(async (req: Request, res: Response) => {
   if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)) {
     throw new ApiError(400, "Please provide a valid email address");
   }
-  
+
   const existedUser = await User.findOne({ $or: [{ username }, { email }] });
   if (existedUser) {
     throw new ApiError(409, "User already exists");
   }
-  
+
   const avatarLocalPath = req?.file?.path;
-  console.log("req?.file:", req?.file)
-  console.log("avatarLocalPath:", avatarLocalPath)
-  
+  console.log("req?.file:", req?.file);
+  console.log("avatarLocalPath:", avatarLocalPath);
+
   if (!avatarLocalPath) {
     throw new ApiError(400, "Avatar is required");
   }
@@ -91,6 +91,7 @@ const loginUser = asyncHandler(async (req: Request, res: Response) => {
     await generateAndSaveAccessAndRefreshToken(user?._id as string);
 
   user.refreshToken = refreshToken;
+  user.accessToken = accessToken;
   await user.save({
     validateBeforeSave: false,
   });
@@ -101,13 +102,7 @@ const loginUser = asyncHandler(async (req: Request, res: Response) => {
     .status(200)
     .cookie("accessToken", accessToken, cookieOptions)
     .cookie("refreshToken", refreshToken, cookieOptions)
-    .json(
-      new ApiResponse(
-        200,
-        { user, tokens: { accessToken, refreshToken } },
-        "User logged In successfully"
-      )
-    );
+    .json(new ApiResponse(200, user, "User logged In successfully"));
 });
 
 const logoutUser = asyncHandler(async (req: Request, res: Response) => {
@@ -166,9 +161,10 @@ const refreshAccessToken = asyncHandler(async (req: Request, res: Response) => {
     );
 });
 
-const getCurrentUser = asyncHandler((req: Request, res: Response) =>
-  res.status(200).json(new ApiResponse(200, req?.user, "User found"))
-);
+const getCurrentUser = asyncHandler((req: Request, res: Response) => {
+  console.log("req?.user:", req?.user);
+  return res.status(200).json(new ApiResponse(200, req?.user, "User found"));
+});
 
 const getAllUsers = asyncHandler(async (req: Request, res: Response) => {
   const users = await User.find({}).select("-password");

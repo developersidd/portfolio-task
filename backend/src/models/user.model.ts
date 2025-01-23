@@ -4,7 +4,7 @@ import mongoose, { Document, Model, Schema } from "mongoose";
 
 declare global {
   namespace Express {
-      interface Request {
+    interface Request {
       user?: IRequestUser;
       files?: {
         [fieldname: string]: Express.Multer.File[];
@@ -39,8 +39,10 @@ export interface IRequestUser {
   email: string;
   avatar: Avatar;
   role: "guest" | "admin";
-  accessToken?: string;
-  refreshToken?: string;
+  tokens: {
+    accessToken?: string;
+    refreshToken?: string;
+  };
 }
 
 const userSchema = new Schema<IUser>(

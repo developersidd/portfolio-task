@@ -1,5 +1,8 @@
+import UserInitializer from "@/components/User-initializer/UserInitializer";
+import UserProvider from "@/providers/UserProvider";
 import type { Metadata } from "next";
 import { Inter, Rubik, Syne } from "next/font/google";
+import { Toaster } from "sonner";
 import "./globals.css";
 
 const rubik = Rubik({
@@ -35,7 +38,11 @@ export default function RootLayout({
       <body
         className={`${rubik.variable} ${inter.variable} ${syne.variable} antialiased`}
       >
-        {children}
+        <UserProvider>
+          <UserInitializer />
+          {children}
+          <Toaster richColors />
+        </UserProvider>
       </body>
     </html>
   );

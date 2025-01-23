@@ -2,6 +2,7 @@ import { Router } from "express";
 import {
   getAllUsers,
   getCurrentUser,
+  loginUser,
   logoutUser,
   refreshAccessToken,
   registerUser,
@@ -13,6 +14,9 @@ const router = Router();
 
 // Register route
 router.post("/register", upload.single("avatar"), registerUser);
+
+// Login route
+router.post("/login", loginUser);
 
 // Get all users
 router.get("/user-list", verifyJWT, getAllUsers);

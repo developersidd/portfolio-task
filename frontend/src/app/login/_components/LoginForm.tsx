@@ -1,7 +1,11 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
+import { apiClient } from "@/api";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import { z } from "zod";
 
 const formSchema = z.object({
@@ -23,9 +27,23 @@ const LoginForm: React.FC = () => {
   } = useForm<FormData>({
     resolver: zodResolver(formSchema),
   });
-
-  const onSubmit = (data: FormData) => {
-    console.log(data);
+  const router = useRouter();
+  const onSubmit = async (data: FormData) => {
+    const { email, password } = data;
+    try {
+      const data = await apiClient.post("/users/login", {
+        email,
+        password,
+      });
+      const user = data.data;
+      toast.success(
+        `Welcome back - ${user?.role?.toUpperCase()}: ${user?.username}!`
+      );
+      localStorage.setItem("loggedIn", "true");
+      router.push("/dashboard/");
+    } catch (e: any) {
+      toast.error("There was an error occurred!");
+    }
   };
 
   return (
