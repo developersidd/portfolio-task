@@ -1,16 +1,27 @@
-// src/index.ts
-import express, { Express, Request, Response } from "express";
+// Dependencies
 import dotenv from "dotenv";
+import app from "./app";
+import connectDB from "./db/index";
 
-dotenv.config();
+// configure environment variables
+dotenv.config({ path: "./.env" });
 
-const app: Express = express();
-const port = process.env.PORT || 5000;
+// configuration
+const { PORT } = process.env;
 
-app.get("/", (req: Request, res: Response) => {
-  res.send("Express + TypeScript Server");
-});
-
-app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`);
-});
+// connect to DB and start server
+connectDB()
+  .then(() => {
+    // check if app is ready to run
+    app.on("error", (error) => {
+      console.log("Application isn't ready to run");
+      throw error;
+    });
+    // start server
+    app.listen(PORT, () => {
+      console.log(`Server is running on port ${PORT}`);
+    });
+  })
+  .catch((err: any) => {
+    console.log("MongoDB connection failed !!!", err);
+  });
