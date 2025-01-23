@@ -8,10 +8,10 @@ const project_controller_1 = require("../controllers/project.controller");
 const auth_middleware_1 = __importDefault(require("../middlewares/auth.middleware"));
 const multer_middleware_1 = __importDefault(require("../middlewares/multer.middleware"));
 const router = (0, express_1.Router)();
-router.patch("/:projectId", project_controller_1.updateProject);
-router.use(auth_middleware_1.default);
-router.get("/list", project_controller_1.getAllProjects);
 router.get("/:projectId", project_controller_1.getProject);
+router.get("/list", project_controller_1.getAllProjects);
+router.use(auth_middleware_1.default);
+router.patch("/:projectId", project_controller_1.updateProject);
 router.post("/create", multer_middleware_1.default.fields([
     {
         name: "thumbnail",

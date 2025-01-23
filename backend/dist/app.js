@@ -23,6 +23,9 @@ app.use(express_1.default.static("public"));
 app.use((0, cors_1.default)({ credentials: true, origin: process.env.CORS_ORIGIN }));
 app.use((0, cookie_parser_1.default)());
 // routes
+app.get("/", (req, res) => {
+    res.send("Welcome to my Portfolio Task API");
+});
 app.use("/api/v1/users", user_routes_1.default);
 app.use("/api/v1/projects", project_routes_1.default);
 // 404 Error Handler
